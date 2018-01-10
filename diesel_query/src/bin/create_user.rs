@@ -3,12 +3,12 @@ extern crate diesel;
 extern crate clap;
 
 use self::diesel_query::*;
-use self::diesel_query::models::*;
+use self::models::{NewUser};
 
 use clap::{Arg, App};
 
 fn main() {
-   let matches = App::new("create_user")
+    let matches = App::new("create_user")
                       .arg(Arg::with_name("name")
                            .required(true)
                            .takes_value(true))
