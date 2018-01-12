@@ -1,7 +1,7 @@
-use super::schema::users;
-use super::schema::addresses;
+use super::schema::{users, addresses};
 
-#[derive(Queryable)]
+#[derive(Identifiable, Queryable)]
+#[table_name="users"]
 pub struct User {
     pub id: i32,
     pub name: String,
@@ -15,7 +15,9 @@ pub struct NewUser<'a> {
     pub email: &'a str
 }
 
-#[derive(Queryable)]
+#[derive(Identifiable, Queryable, Associations)]
+#[belongs_to(User)]
+#[table_name="addresses"]
 pub struct Address {
     pub id: i32,
     pub street_number: String,
