@@ -2,7 +2,7 @@ extern crate diesel_query;
 extern crate diesel;
 
 use self::diesel_query::*;
-use self::diesel_query::models::*;
+use self::diesel_query::models::{User};
 use self::diesel::prelude::*;
 
 fn main() {
@@ -12,7 +12,7 @@ fn main() {
 
     let results = users
         .order(id.desc())
-        .limit(5)
+        .limit(10)
         .load::<User>(&connection)
         .expect("Error loading users");
 

@@ -27,5 +27,16 @@ pub fn create_user<'a>(conn: &PgConnection, record: NewUser) -> User {
     diesel::insert_into(users::table)
         .values(&record)
         .get_result(conn)
-        .expect("Error saving new post")
+        .expect("Error saving new user")
+}
+
+use self::models::{Address, NewAddress};
+
+pub fn create_address<'a>(conn: &PgConnection, record: NewAddress) -> Address {
+    use schema::addresses;
+
+    diesel::insert_into(addresses::table)
+        .values(&record)
+        .get_result(conn)
+        .expect("Error saving new address")
 }
