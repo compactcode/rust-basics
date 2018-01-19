@@ -1,16 +1,16 @@
-extern crate diesel_query;
+extern crate diesel_postgres;
 extern crate diesel;
 #[macro_use]
 extern crate clap;
 
 use self::diesel::prelude::*;
-use self::diesel_query::*;
+use self::diesel_postgres::*;
 use self::models::User;
 
 use clap::{Arg, App};
 
 fn main() {
-    use diesel_query::schema::users::dsl::{users, email};
+    use diesel_postgres::schema::users::dsl::{users, email};
 
     let matches = App::new("update_user")
                       .arg(Arg::with_name("id")

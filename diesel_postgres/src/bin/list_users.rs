@@ -1,12 +1,12 @@
-extern crate diesel_query;
+extern crate diesel_postgres;
 extern crate diesel;
 
-use self::diesel_query::*;
-use self::diesel_query::models::{User};
+use self::diesel_postgres::*;
+use self::diesel_postgres::models::{User};
 use self::diesel::prelude::*;
 
 fn main() {
-    use diesel_query::schema::users::dsl::*;
+    use diesel_postgres::schema::users::dsl::*;
 
     let connection = establish_connection();
 

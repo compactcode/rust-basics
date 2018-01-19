@@ -1,8 +1,8 @@
-extern crate diesel_query;
+extern crate diesel_postgres;
 extern crate diesel;
 
-use self::diesel_query::*;
-use self::diesel_query::models::{User, Address};
+use self::diesel_postgres::*;
+use self::diesel_postgres::models::{User, Address};
 use self::diesel::prelude::*;
 
 fn main() {

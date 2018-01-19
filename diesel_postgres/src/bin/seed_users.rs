@@ -1,8 +1,8 @@
-extern crate diesel_query;
+extern crate diesel_postgres;
 extern crate diesel;
 
-use self::diesel_query::*;
-use self::diesel_query::models::{NewUser, NewAddress};
+use self::diesel_postgres::*;
+use self::diesel_postgres::models::{NewUser, NewAddress};
 
 fn main() {
     let connection = establish_connection();

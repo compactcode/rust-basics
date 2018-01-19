@@ -1,8 +1,8 @@
-extern crate diesel_query;
+extern crate diesel_postgres;
 extern crate diesel;
 extern crate clap;
 
-use self::diesel_query::*;
+use self::diesel_postgres::*;
 use self::models::{NewUser};
 
 use clap::{Arg, App};

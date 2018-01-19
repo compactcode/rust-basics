@@ -1,10 +1,10 @@
-extern crate diesel_query;
+extern crate diesel_postgres;
 extern crate diesel;
 
 use self::diesel::prelude::*;
 
-use self::diesel_query::{establish_connection};
-use self::diesel_query::models::{User};
+use self::diesel_postgres::{establish_connection};
+use self::diesel_postgres::models::{User};
 
 fn main() {
     process().unwrap();
@@ -50,7 +50,7 @@ impl Iterator for BatchLoad {
     type Item = Batch<User>;
 
     fn next(&mut self) -> Option<Self::Item> {
-        use diesel_query::schema::users::dsl::*;
+        use diesel_postgres::schema::users::dsl::*;
 
         self.current_batch = self.current_batch + 1;
 

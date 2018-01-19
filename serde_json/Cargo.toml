@@ -1,5 +1,5 @@
 [package]
-name = "serde-json"
+name = "serde_json"
 version = "0.1.0"
 authors = ["Shanon McQuay <shanonmcquay@gmail.com>"]
 

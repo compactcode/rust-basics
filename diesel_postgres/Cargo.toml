@@ -1,5 +1,5 @@
 [package]
-name = "diesel_query"
+name = "diesel_postgres"
 version = "0.1.0"
 authors = ["Shanon McQuay <shanonmcquay@gmail.com>"]
 
