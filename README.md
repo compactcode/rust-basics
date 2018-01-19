@@ -7,6 +7,6 @@ the learning process into more managable parts.
 
 - [ ] [PostgreSQL & Diesel](diesel_postgres/)
 - [ ] [JSON & Serde](serde_json/)
-- [ ] HTTP
+- [ ] [HTTP & Rocket](rocket_http)
 - [ ] Docker
 - [ ] HTTP & Google Cloud Platform
