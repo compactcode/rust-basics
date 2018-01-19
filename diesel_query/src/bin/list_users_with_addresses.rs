@@ -11,7 +11,6 @@ fn main() {
 
 // 1. SELECT * FROM users
 // 2. SELECT * FROM addresses WHERE user_id IN (users)
-// 3. Merge the two results
 fn process() -> Result<(), diesel::result::Error> {
     use schema::users;
 
