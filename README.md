@@ -1,8 +1,12 @@
-# Rust Playground
+# Rust Basics
 
-A group of experiments for me to learn how to do basic stuff using Rust.
+I've set myself the goal of learning how to build a JSON API server in rust.
 
-- [ ] [Postgres](diesel_query/)
-- [ ] [JSON](serde-json/)
-- [ ] Basic HTTP Server
-- [ ] Run a HTTP Server on Google Container Engine
+This project contains a collection of smaller projects I'm using to break down
+the learning process into more managable parts.
+
+- [ ] [PostgreSQL & Diesel](diesel_query/)
+- [ ] [JSON & Serde](serde-json/)
+- [ ] HTTP
+- [ ] Docker
+- [ ] HTTP & Google Cloud Platform
