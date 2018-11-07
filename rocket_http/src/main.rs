@@ -1,13 +1,10 @@
-#![feature(plugin)]
-#![plugin(rocket_codegen)]
+#![feature(proc_macro_hygiene, decl_macro)]
 
 extern crate rocket;
+extern crate rocket_contrib;
 
-#[get("/")]
-fn index() -> &'static str {
-    "Hello, world!"
-}
+use rocket_contrib::serve::StaticFiles;
 
 fn main() {
-    rocket::ignite().mount("/", routes![index]).launch();
+    rocket::ignite().mount("/public", StaticFiles::from("public")).launch();
 }
