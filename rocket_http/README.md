@@ -7,6 +7,6 @@ I want to see what is involved in writing a web application using rocket.
 - [x] Render HTML File
 - [x] Render HTML Template
 - [x] Query String
-- [ ] Form Data
+- [x] Form Data
 - [ ] Form Validation
 - [ ] Cookies

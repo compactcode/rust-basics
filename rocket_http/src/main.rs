@@ -6,6 +6,8 @@ use std::collections::HashMap;
 extern crate rocket_contrib;
 
 use rocket::http::RawStr;
+use rocket::request::Form;
+
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::Template;
 
@@ -21,10 +23,35 @@ fn query(title: &RawStr) -> String {
     format!("Hello Rocket, {}!", title.as_str())
 }
 
+#[get("/tasks/new")]
+fn task_new() -> Template {
+    Template::render("form", {})
+}
+
+#[derive(FromForm)]
+struct Task {
+    description: String,
+    done: bool,
+}
+
+#[post("/tasks", data="<task>")]
+fn task_create(task: Form<Task>) -> String {
+    format!("Task: {}, Done: {}", task.description, task.done)
+}
+
+fn routes() -> Vec<rocket::Route> {
+    routes![
+        index,
+        query,
+        task_create,
+        task_new
+    ]
+}
+
 fn rocket() -> rocket::Rocket {
     rocket::ignite()
         .mount("/public", StaticFiles::from("public"))
-        .mount("/", routes![index, query])
+        .mount("/", routes())
         .attach(Template::fairing())
 }
 fn main() {
