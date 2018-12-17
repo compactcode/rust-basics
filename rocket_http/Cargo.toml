@@ -4,9 +4,9 @@ version = "0.1.0"
 authors = ["Shanon McQuay <shanonmcquay@gmail.com>"]
 
 [dependencies]
-rocket = "0.4.0-rc.1"
+rocket = "0.4.0"
 
 [dependencies.rocket_contrib]
-version = "0.4.0-rc.1"
+version = "0.4.0"
 default-features = false
 features = ["serve", "handlebars_templates"]
