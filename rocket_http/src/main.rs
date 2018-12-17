@@ -2,7 +2,8 @@
 
 use std::collections::HashMap;
 
-#[macro_use] extern crate rocket;
+#[macro_use]
+extern crate rocket;
 extern crate rocket_contrib;
 
 use rocket::http::RawStr;
@@ -10,6 +11,15 @@ use rocket::request::Form;
 
 use rocket_contrib::serve::StaticFiles;
 use rocket_contrib::templates::Template;
+
+#[macro_use]
+extern crate accord;
+
+use accord::Accord;
+
+mod task;
+
+use task::Task;
 
 #[get("/")]
 fn index() -> Template {
@@ -28,15 +38,14 @@ fn task_new() -> Template {
     Template::render("form", {})
 }
 
-#[derive(FromForm)]
-struct Task {
-    description: String,
-    done: bool,
-}
-
 #[post("/tasks", data="<task>")]
 fn task_create(task: Form<Task>) -> String {
-    format!("Task: {}, Done: {}", task.description, task.done)
+    let result = task.validate();
+    if result.is_ok() {
+        format!("Success: {:?}", task.description)
+    } else {
+        format!("Failure: {:?}", result)
+    }
 }
 
 fn routes() -> Vec<rocket::Route> {
